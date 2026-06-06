@@ -1,0 +1,16 @@
+package com.micro.payment.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class NetBankingUserDetailsDto {
+
+	String userId;
+	String name;
+	String password;
+	double avilableBalance;
+}
