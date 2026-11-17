@@ -30,15 +30,15 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 echo 'Building Docker image'
-                sh 'docker build -t userservice:$BUILD_NUMBER .'
+                sh 'docker build -t paymentservice:$BUILD_NUMBER .'
             }
         }
 
         stage('Verify Docker Image') {
             steps {
                 echo 'Verifying Docker image'
-                sh 'docker image inspect userservice:$BUILD_NUMBER'
-                sh 'docker images userservice'
+                sh 'docker image inspect paymentservice:$BUILD_NUMBER'
+                sh 'docker images orderservice'
             }
         }
     }
@@ -53,4 +53,3 @@ pipeline {
         }
     }
 }
-
