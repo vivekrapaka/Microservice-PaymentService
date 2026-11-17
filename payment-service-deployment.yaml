@@ -1,0 +1,42 @@
+
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: payment-service
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: payment-service
+  template:
+    metadata:
+      labels:
+        app: payment-service
+    spec:
+      containers:
+        - name: payment-service
+          image: paymentservice:10
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8010
+          env:
+            - name: DB_URL
+              value: "jdbc:postgresql://postgres-persistent:5432/persistentdb"
+            - name: DB_USERNAME
+              value: "postgres"
+            - name: DB_PASSWORD
+              value: "root"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: payment-service
+spec:
+  type: ClusterIP
+  selector:
+    app: payment-service
+  ports:
+    - port: 8001
+      targetPort: 8010
+      protocol: TCP
