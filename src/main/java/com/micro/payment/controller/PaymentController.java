@@ -31,7 +31,7 @@ public class PaymentController {
 	}
 
 	@PostMapping("/netbanking/details")
-	public String netBankingLogin(@RequestBody PaymentLoginDetailsDto dto) {
+	public String netBanking(@RequestBody PaymentLoginDetailsDto dto) {
 
 		return paymentService.netbankingLogin(dto);
 	}
