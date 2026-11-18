@@ -30,6 +30,12 @@ public class PaymentController {
 		return paymentService.netbankingLogin(dto);
 	}
 
+	@PostMapping("/netbanking/details")
+	public String netBankingLogin(@RequestBody PaymentLoginDetailsDto dto) {
+
+		return paymentService.netbankingLogin(dto);
+	}
+	
 	@GetMapping("/banking/options")
 	public List<String> bankingOptionAvilable() {
 		return List.of("CC", "DC", "netbanking", "UPI");
