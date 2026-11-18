@@ -38,7 +38,7 @@ pipeline {
             steps {
                 echo 'Verifying Docker image'
                 sh 'docker image inspect paymentservice:$BUILD_NUMBER'
-                sh 'docker images payment'
+                sh 'docker images orderservice'
             }
         }
     }
